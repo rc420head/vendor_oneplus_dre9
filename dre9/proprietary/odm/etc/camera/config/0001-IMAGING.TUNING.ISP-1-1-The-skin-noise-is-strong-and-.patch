@@ -1,0 +1,80 @@
+From f79f74bf031fe460e6be79f4ef0cc3019cc9df80 Mon Sep 17 00:00:00 2001
+From: zhenglj0326 <zhenglj0326@thundersoft.com>
+Date: Mon, 12 Apr 2021 13:41:50 +0800
+Subject: [PATCH] [IMAGING.TUNING.ISP][1/1]{The skin noise is strong and the
+ face is blurrer}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Scope of application: {【Android-R】/【SDM4350】/【OOS11】/【N200】}
+Admission ID: {ONEPLUS-182823}
+Analysis: {Noise and blur}
+Solution: {Adjust the luma noise reduction of the blurless parameters}
+Risk and impact [Fast/Stable/Provincial/Function/Security Privacy]: {NA}
+Test Recommendation: {camera can open and check issue}
+Cross-group dependency (topic name): {NA}
+
+Change-Id: I7e1fd29df8f7a277614e59dfa7917ec4c81a14d3
+---
+ configs/ov13b10 | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/configs/ov13b10 b/configs/ov13b10
+index 0ad293c..38fe3f1 100755
+--- a/configs/ov13b10
++++ b/configs/ov13b10
+@@ -607,10 +607,10 @@
+             0 /*frames*/,
+             0 /*scene*/,
+             8000 /*iso*/,
+-            3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7 /*luminanceNoiseReduction*/,
+-            4.8, 3.3, 2.1, 2.1, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0 /*chromaNoiseReduction*/,
++            4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2 /*luminanceNoiseReduction*/,
++            2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0 /*chromaNoiseReduction*/,
+             0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7 /*sharpen*/,
+-            3 /*brightening*/,
++            2 /*brightening*/,
+             0 /*colorBoost*/,
+             6 /*movingObjectNoiseRemoval*/,
+             30 /*inputSharpnessThreshold*/,
+@@ -618,8 +618,8 @@
+             1 /*highQualityFusion*/,
+             0 /*allocate*/,
+             -1 /*baseFrame*/,
+-            0 /*faceNoiseReductionStrength*/,
+-            0 /*skinNoiseReductionStrength*/,
++            1 /*faceNoiseReductionStrength*/,
++            1 /*skinNoiseReductionStrength*/,
+             0 /*frontCameraMode*/,
+             6 /*effectiveFrames*/,
+             47 /*deghostingStrength*/
+@@ -628,10 +628,10 @@
+             0 /*frames*/,
+             0 /*scene*/,
+             12000 /*iso*/,
+-            3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7 /*luminanceNoiseReduction*/,
+-            5.2, 2.2, 0.8, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 /*chromaNoiseReduction*/,
+-            0.1, 0.3, 0.5, 0.6, 0.7, 0.7, 1.1, 1.1, 1.1, 1.1 /*sharpen*/,
+-            3 /*brightening*/,
++            4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2, 4.2 /*luminanceNoiseReduction*/,
++            0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 /*chromaNoiseReduction*/,
++            0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7, 0.7 /*sharpen*/,
++            2 /*brightening*/,
+             0 /*colorBoost*/,
+             6 /*movingObjectNoiseRemoval*/,
+             30 /*inputSharpnessThreshold*/,
+@@ -639,8 +639,8 @@
+             1 /*highQualityFusion*/,
+             0 /*allocate*/,
+             -1 /*baseFrame*/,
+-            0 /*faceNoiseReductionStrength*/,
+-            0 /*skinNoiseReductionStrength*/,
++            1 /*faceNoiseReductionStrength*/,
++            1 /*skinNoiseReductionStrength*/,
+             0 /*frontCameraMode*/,
+             6 /*effectiveFrames*/,
+             47 /*deghostingStrength*/
+-- 
+2.7.4
+
